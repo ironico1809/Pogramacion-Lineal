@@ -1,0 +1,218 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="1200" height="800" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <style>
+      .module { fill: #f0f8ff; stroke: #2563eb; stroke-width: 2; }
+      .interface { fill: #dbeafe; stroke: #1d4ed8; stroke-width: 2; }
+      .communication { fill: #fef3c7; stroke: #f59e0b; stroke-width: 2; }
+      .optimization { fill: #dcfce7; stroke: #16a34a; stroke-width: 2; }
+      .processing { fill: #fecaca; stroke: #dc2626; stroke-width: 2; }
+      .text { font-family: Arial, sans-serif; font-size: 10px; text-anchor: middle; }
+      .title { font-family: Arial, sans-serif; font-size: 16px; font-weight: bold; text-anchor: middle; }
+      .module-title { font-family: Arial, sans-serif; font-size: 12px; font-weight: bold; text-anchor: middle; }
+      .arrow { stroke: #374151; stroke-width: 2; marker-end: url(#arrowhead); }
+      .bidirectional { stroke: #374151; stroke-width: 2; marker-end: url(#arrowhead); marker-start: url(#arrowhead); }
+    </style>
+    <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#374151" />
+    </marker>
+  </defs>
+  
+  <!-- Title -->
+  <text x="600" y="30" class="title">CORRELACIONES ENTRE MÓDULOS DEL SISTEMA</text>
+  
+  <!-- Module 1: Interface -->
+  <rect x="50" y="70" width="250" height="180" class="interface"/>
+  <text x="175" y="90" class="module-title">MÓDULO DE INTERFAZ</text>
+  <text x="175" y="105" class="module-title">(Frontend)</text>
+  
+  <rect x="70" y="120" width="100" height="30" class="interface"/>
+  <text x="120" y="135" class="text">Gestión Estado</text>
+  <text x="120" y="145" class="text">Problema</text>
+  
+  <rect x="180" y="120" width="100" height="30" class="interface"/>
+  <text x="230" y="135" class="text">Validación</text>
+  <text x="230" y="145" class="text">Entrada</text>
+  
+  <rect x="70" y="160" width="100" height="30" class="interface"/>
+  <text x="120" y="175" class="text">Comunicación</text>
+  <text x="120" y="185" class="text">API</text>
+  
+  <rect x="180" y="160" width="100" height="30" class="interface"/>
+  <text x="230" y="175" class="text">Renderizado</text>
+  <text x="230" y="185" class="text">Resultados</text>
+  
+  <rect x="125" y="200" width="100" height="30" class="interface"/>
+  <text x="175" y="215" class="text">Manejo</text>
+  <text x="175" y="225" class="text">Eventos</text>
+  
+  <!-- Module 2: Communication -->
+  <rect x="350" y="70" width="250" height="180" class="communication"/>
+  <text x="475" y="90" class="module-title">MÓDULO DE COMUNICACIÓN</text>
+  <text x="475" y="105" class="module-title">(API REST)</text>
+  
+  <rect x="370" y="120" width="100" height="30" class="communication"/>
+  <text x="420" y="135" class="text">Serialización</text>
+  <text x="420" y="145" class="text">JSON</text>
+  
+  <rect x="480" y="120" width="100" height="30" class="communication"/>
+  <text x="530" y="135" class="text">Ruteo</text>
+  <text x="530" y="145" class="text">Métodos</text>
+  
+  <rect x="370" y="160" width="100" height="30" class="communication"/>
+  <text x="420" y="175" class="text">Manejo</text>
+  <text x="420" y="185" class="text">Errores</text>
+  
+  <rect x="480" y="160" width="100" height="30" class="communication"/>
+  <text x="530" y="175" class="text">Logging</text>
+  <text x="530" y="185" class="text">Operaciones</text>
+  
+  <rect x="425" y="200" width="100" height="30" class="communication"/>
+  <text x="475" y="215" class="text">Respuesta</text>
+  <text x="475" y="225" class="text">HTTP</text>
+  
+  <!-- Module 3: Optimization -->
+  <rect x="650" y="70" width="250" height="180" class="optimization"/>
+  <text x="775" y="90" class="module-title">MÓDULO DE OPTIMIZACIÓN</text>
+  <text x="775" y="105" class="module-title">(Backend)</text>
+  
+  <rect x="670" y="120" width="100" height="30" class="optimization"/>
+  <text x="720" y="135" class="text">Gran M</text>
+  <text x="720" y="145" class="text">Solver</text>
+  
+  <rect x="780" y="120" width="100" height="30" class="optimization"/>
+  <text x="830" y="135" class="text">Dos Fases</text>
+  <text x="830" y="145" class="text">Solver</text>
+  
+  <rect x="670" y="160" width="100" height="30" class="optimization"/>
+  <text x="720" y="175" class="text">Gestión</text>
+  <text x="720" y="185" class="text">Tablas</text>
+  
+  <rect x="780" y="160" width="100" height="30" class="optimization"/>
+  <text x="830" y="175" class="text">Cálculo</text>
+  <text x="830" y="185" class="text">Iteraciones</text>
+  
+  <rect x="725" y="200" width="100" height="30" class="optimization"/>
+  <text x="775" y="215" class="text">Verificación</text>
+  <text x="775" y="225" class="text">Optimalidad</text>
+  
+  <!-- Module 4: Processing -->
+  <rect x="950" y="70" width="200" height="180" class="processing"/>
+  <text x="1050" y="90" class="module-title">MÓDULO PROCESAMIENTO</text>
+  
+  <rect x="970" y="120" width="80" height="30" class="processing"/>
+  <text x="1010" y="135" class="text">Conversión</text>
+  <text x="1010" y="145" class="text">Estándar</text>
+  
+  <rect x="1060" y="120" width="80" height="30" class="processing"/>
+  <text x="1100" y="135" class="text">Operaciones</text>
+  <text x="1100" y="145" class="text">Matriciales</text>
+  
+  <rect x="970" y="160" width="80" height="30" class="processing"/>
+  <text x="1010" y="175" class="text">Aritmética</text>
+  <text x="1010" y="185" class="text">Exacta</text>
+  
+  <rect x="1060" y="160" width="80" height="30" class="processing"/>
+  <text x="1100" y="175" class="text">Verificación</text>
+  <text x="1100" y="185" class="text">Optimal</text>
+  
+  <rect x="1015" y="200" width="80" height="30" class="processing"/>
+  <text x="1055" y="215" class="text">Construcción</text>
+  <text x="1055" y="225" class="text">Resultado</text>
+  
+  <!-- Arrows between modules -->
+  <line x1="300" y1="150" x2="350" y2="150" class="bidirectional"/>
+  <text x="325" y="145" class="text">Petición/</text>
+  <text x="325" y="155" class="text">Respuesta</text>
+  
+  <line x1="600" y1="150" x2="650" y2="150" class="bidirectional"/>
+  <text x="625" y="145" class="text">Datos/</text>
+  <text x="625" y="155" class="text">Resultado</text>
+  
+  <line x1="900" y1="150" x2="950" y2="150" class="bidirectional"/>
+  <text x="925" y="145" class="text">Invocación/</text>
+  <text x="925" y="155" class="text">Cálculo</text>
+  
+  <!-- Data flow description -->
+  <rect x="50" y="300" width="1100" height="450" stroke="#6b7280" stroke-width="2" fill="none"/>
+  <text x="600" y="320" class="title">FLUJO DE DATOS Y DEPENDENCIAS</text>
+  
+  <!-- Detailed flow -->
+  <rect x="80" y="340" width="200" height="100" class="interface"/>
+  <text x="180" y="360" class="module-title">1. Captura de Entrada</text>
+  <text x="90" y="380" class="text">• Usuario configura problema</text>
+  <text x="90" y="395" class="text">• Validación en tiempo real</text>
+  <text x="90" y="410" class="text">• Construcción matriz datos</text>
+  <text x="90" y="425" class="text">• Verificación consistencia</text>
+  
+  <rect x="300" y="340" width="200" height="100" class="communication"/>
+  <text x="400" y="360" class="module-title">2. Transmisión API</text>
+  <text x="310" y="380" class="text">• Serialización a JSON</text>
+  <text x="310" y="395" class="text">• Envío HTTP POST</text>
+  <text x="310" y="410" class="text">• Timeout y retry</text>
+  <text x="310" y="425" class="text">• Manejo errores red</text>
+  
+  <rect x="520" y="340" width="200" height="100" class="optimization"/>
+  <text x="620" y="360" class="module-title">3. Selección Algoritmo</text>
+  <text x="530" y="380" class="text">• Routing por método</text>
+  <text x="530" y="395" class="text">• Instanciar solver</text>
+  <text x="530" y="410" class="text">• Preparar datos entrada</text>
+  <text x="530" y="425" class="text">• Validar parámetros</text>
+  
+  <rect x="740" y="340" width="200" height="100" class="processing"/>
+  <text x="840" y="360" class="module-title">4. Procesamiento Core</text>
+  <text x="750" y="380" class="text">• Conversión forma estándar</text>
+  <text x="750" y="395" class="text">• Construcción tabla inicial</text>
+  <text x="750" y="410" class="text">• Ejecución iterativa</text>
+  <text x="750" y="425" class="text">• Verificación convergencia</text>
+  
+  <rect x="960" y="340" width="180" height="100" class="optimization"/>
+  <text x="1050" y="360" class="module-title">5. Construcción Result</text>
+  <text x="970" y="380" class="text">• Extracción solución</text>
+  <text x="970" y="395" class="text">• Cálculo valores finales</text>
+  <text x="970" y="410" class="text">• Formateo respuesta</text>
+  <text x="970" y="425" class="text">• Interpretación contextual</text>
+  
+  <!-- Return flow -->
+  <rect x="300" y="460" width="200" height="100" class="communication"/>
+  <text x="400" y="480" class="module-title">6. Respuesta HTTP</text>
+  <text x="310" y="500" class="text">• Serialización JSON</text>
+  <text x="310" y="515" class="text">• Headers apropiados</text>
+  <text x="310" y="530" class="text">• Status codes</text>
+  <text x="310" y="545" class="text">• Error handling</text>
+  
+  <rect x="80" y="460" width="200" height="100" class="interface"/>
+  <text x="180" y="480" class="module-title">7. Visualización</text>
+  <text x="90" y="500" class="text">• Deserialización datos</text>
+  <text x="90" y="515" class="text">• Renderizado tablas</text>
+  <text x="90" y="530" class="text">• Interpretación resultados</text>
+  <text x="90" y="545" class="text">• Feedback usuario</text>
+  
+  <!-- Flow arrows -->
+  <line x1="280" y1="390" x2="300" y2="390" class="arrow"/>
+  <line x1="500" y1="390" x2="520" y2="390" class="arrow"/>
+  <line x1="720" y1="390" x2="740" y2="390" class="arrow"/>
+  <line x1="940" y1="390" x2="960" y2="390" class="arrow"/>
+  
+  <!-- Return arrows -->
+  <line x1="960" y1="420" x2="940" y2="420" class="arrow"/>
+  <line x1="940" y1="420" x2="940" y2="460" class="arrow"/>
+  <line x1="940" y1="510" x2="500" y2="510" class="arrow"/>
+  <line x1="300" y1="510" x2="280" y2="510" class="arrow"/>
+  
+  <!-- Dependencies and constraints -->
+  <rect x="80" y="590" width="1060" height="120" stroke="#dc2626" stroke-width="2" fill="#fee2e2"/>
+  <text x="600" y="610" class="module-title">DEPENDENCIAS Y RESTRICCIONES ENTRE MÓDULOS</text>
+  
+  <text x="90" y="630" class="text">DEPENDENCIAS CRÍTICAS:</text>
+  <text x="90" y="645" class="text">• Frontend → API: Disponibilidad del servidor backend</text>
+  <text x="90" y="660" class="text">• API → Optimización: Correcta implementación de métodos simplex</text>
+  <text x="90" y="675" class="text">• Optimización → Procesamiento: Precisión aritmética para convergencia</text>
+  <text x="90" y="690" class="text">• Todos los módulos → Validación: Consistencia de datos entre capas</text>
+  
+  <text x="600" y="630" class="text">RESTRICCIONES OPERATIVAS:</text>
+  <text x="600" y="645" class="text">• Tamaño máximo problema: 10x10 (Frontend UI)</text>
+  <text x="600" y="660" class="text">• Timeout comunicación: 30 segundos (API)</text>
+  <text x="600" y="675" class="text">• Límite iteraciones: 100 (Optimización)</text>
+  <text x="600" y="690" class="text">• Precisión numérica: 6 decimales (Procesamiento)</text>
+</svg>

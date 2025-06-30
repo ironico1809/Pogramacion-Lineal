@@ -1,0 +1,195 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="900" height="1400" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <style>
+      .box { fill: #f0f8ff; stroke: #2563eb; stroke-width: 2; }
+      .process { fill: #dbeafe; stroke: #1d4ed8; stroke-width: 2; }
+      .decision { fill: #fef3c7; stroke: #f59e0b; stroke-width: 2; }
+      .terminal { fill: #dcfce7; stroke: #16a34a; stroke-width: 2; }
+      .error { fill: #fee2e2; stroke: #dc2626; stroke-width: 2; }
+      .phase { fill: #e0e7ff; stroke: #6366f1; stroke-width: 3; stroke-dasharray: 5,5; }      .text { font-family: Arial, sans-serif; font-size: 9px; text-anchor: middle; }
+      .small-text { font-family: Arial, sans-serif; font-size: 8px; text-anchor: middle; }
+      .title { font-family: Arial, sans-serif; font-size: 16px; font-weight: bold; text-anchor: middle; }
+      .phase-title { font-family: Arial, sans-serif; font-size: 12px; font-weight: bold; text-anchor: middle; fill: #6366f1; }
+      .arrow { stroke: #374151; stroke-width: 2; marker-end: url(#arrowhead); }
+    </style>
+    <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#374151" />
+    </marker>
+  </defs>
+  
+  <!-- Title -->
+  <text x="450" y="30" class="title">ALGORITMO MÉTODO GRAN M</text>
+  
+  <!-- Inicio -->
+  <ellipse cx="450" cy="70" rx="60" ry="25" class="terminal"/>
+  <text x="450" y="75" class="text">INICIO</text>
+    <!-- Preparación de Datos -->
+  <rect x="100" y="110" width="700" height="80" class="phase"/>
+  <text x="450" y="130" class="phase-title">FASE 1: PREPARACIÓN DE DATOS</text>
+  
+  <rect x="130" y="140" width="150" height="40" class="process"/>
+  <text x="205" y="155" class="text">Convertir a forma</text>
+  <text x="205" y="170" class="text">estándar</text>
+  
+  <rect x="290" y="140" width="150" height="40" class="process"/>
+  <text x="365" y="155" class="text">Agregar variables</text>
+  <text x="365" y="170" class="text">auxiliares</text>
+  
+  <rect x="450" y="140" width="150" height="40" class="process"/>
+  <text x="525" y="155" class="text">Construir matriz</text>
+  <text x="525" y="170" class="text">aumentada</text>
+  
+  <rect x="610" y="140" width="150" height="40" class="process"/>
+  <text x="685" y="155" class="text">Establecer</text>
+  <text x="685" y="170" class="text">M = 1000</text>
+    <!-- Construcción Tabla Inicial -->
+  <rect x="100" y="210" width="700" height="100" class="phase"/>
+  <text x="450" y="230" class="phase-title">FASE 2: CONSTRUCCIÓN DE TABLA INICIAL</text>
+  
+  <rect x="130" y="240" width="140" height="40" class="process"/>
+  <text x="200" y="255" class="text">Dimensionar</text>
+  <text x="200" y="270" class="text">tabla</text>
+  
+  <rect x="280" y="240" width="140" height="40" class="process"/>
+  <text x="350" y="255" class="text">Llenar</text>
+  <text x="350" y="270" class="text">coeficientes</text>
+  
+  <rect x="430" y="240" width="140" height="40" class="process"/>
+  <text x="500" y="255" class="text">Fila objetivo</text>
+  <text x="500" y="270" class="text">con M</text>
+  
+  <rect x="580" y="240" width="140" height="40" class="process"/>
+  <text x="650" y="255" class="text">Base inicial</text>
+  <text x="650" y="270" class="text">artificiales</text>
+  
+  <!-- Proceso Iterativo -->
+  <rect x="100" y="330" width="700" height="300" class="phase"/>
+  <text x="450" y="350" class="phase-title">FASE 3: PROCESO ITERATIVO SIMPLEX</text>
+  
+  <rect x="370" y="370" width="160" height="40" class="process"/>
+  <text x="450" y="385" class="text">iteracion = 1</text>
+  <text x="450" y="400" class="text">Inicializar contador</text>
+  
+  <!-- Decision loop -->
+  <polygon points="450,430 520,460 450,490 380,460" class="decision"/>
+  <text x="450" y="455" class="text">¿Es óptimo?</text>
+  <text x="450" y="470" class="small-text">(zj - cj ≥ 0)</text>
+    <!-- Loop body -->
+  <rect x="120" y="520" width="130" height="40" class="process"/>
+  <text x="185" y="535" class="text">Seleccionar</text>
+  <text x="185" y="550" class="text">var. entrante</text>
+  
+  <rect x="270" y="520" width="130" height="40" class="process"/>
+  <text x="335" y="535" class="text">Prueba razón</text>
+  <text x="335" y="550" class="text">mínima</text>
+  
+  <polygon points="490,540 560,560 490,580 420,560" class="decision"/>
+  <text x="490" y="555" class="text">¿Acotado?</text>
+  <text x="490" y="570" class="small-text">(ratios < ∞)</text>
+  
+  <rect x="600" y="535" width="130" height="40" class="error"/>
+  <text x="665" y="550" class="text">NO ACOTADO</text>
+  <text x="665" y="565" class="text">TERMINAR</text>
+  
+  <rect x="120" y="590" width="130" height="40" class="process"/>
+  <text x="185" y="605" class="text">Realizar</text>
+  <text x="185" y="620" class="text">pivoteo</text>
+  
+  <rect x="270" y="590" width="130" height="40" class="process"/>
+  <text x="335" y="605" class="text">Actualizar</text>
+  <text x="335" y="620" class="text">base</text>
+  
+  <rect x="420" y="590" width="130" height="40" class="process"/>
+  <text x="485" y="605" class="text">Registrar</text>
+  <text x="485" y="620" class="text">iteración</text>
+  
+  <rect x="570" y="590" width="130" height="40" class="process"/>
+  <text x="635" y="605" class="text">iteracion++</text>
+  <text x="635" y="620" class="text">Incrementar</text>
+  
+  <!-- Verificación Factibilidad -->
+  <rect x="100" y="650" width="700" height="120" class="phase"/>
+  <text x="450" y="670" class="phase-title">FASE 4: VERIFICACIÓN DE FACTIBILIDAD</text>
+  
+  <polygon points="300,700 380,730 300,760 220,730" class="decision"/>
+  <text x="300" y="720" class="text">¿Variables</text>
+  <text x="300" y="735" class="text">artificiales > 0?</text>
+  <text x="300" y="750" class="small-text">en solución final</text>
+  
+  <rect x="450" y="705" width="120" height="50" class="error"/>
+  <text x="510" y="725" class="text">PROBLEMA</text>
+  <text x="510" y="740" class="text">INFACTIBLE</text>
+  
+  <rect x="580" y="705" width="120" height="50" class="terminal"/>
+  <text x="640" y="725" class="text">FACTIBLE</text>
+  <text x="640" y="740" class="text">Y ÓPTIMO</text>
+  
+  <!-- Extracción Solución -->
+  <rect x="100" y="790" width="700" height="100" class="phase"/>
+  <text x="450" y="810" class="phase-title">FASE 5: EXTRACCIÓN DE SOLUCIÓN</text>
+  
+  <rect x="150" y="820" width="120" height="40" class="process"/>
+  <text x="210" y="835" class="text">Identificar</text>
+  <text x="210" y="850" class="text">variables básicas</text>
+  
+  <rect x="290" y="820" width="120" height="40" class="process"/>
+  <text x="350" y="835" class="text">Calcular valores</text>
+  <text x="350" y="850" class="text">de variables</text>
+  
+  <rect x="430" y="820" width="120" height="40" class="process"/>
+  <text x="490" y="835" class="text">Calcular valor</text>
+  <text x="490" y="850" class="text">función objetivo</text>
+  
+  <rect x="570" y="820" width="120" height="40" class="process"/>
+  <text x="630" y="835" class="text">Construir</text>
+  <text x="630" y="850" class="text">solución final</text>
+  
+  <!-- Fin -->
+  <ellipse cx="450" cy="930" rx="60" ry="25" class="terminal"/>
+  <text x="450" y="935" class="text">FIN</text>
+  
+  <!-- Arrows -->
+  <line x1="450" y1="95" x2="450" y2="110" class="arrow"/>
+  <line x1="450" y1="190" x2="450" y2="210" class="arrow"/>
+  <line x1="450" y1="310" x2="450" y2="330" class="arrow"/>
+  <line x1="450" y1="410" x2="450" y2="430" class="arrow"/>
+  
+  <!-- Loop arrows -->
+  <line x1="380" y1="460" x2="320" y2="460" class="arrow"/>
+  <line x1="320" y1="460" x2="320" y2="520" class="arrow"/>
+  <text x="350" y="455" class="text">No</text>
+  
+  <line x1="320" y1="520" x2="210" y2="520" class="arrow"/>
+  <line x1="270" y1="540" x2="290" y2="540" class="arrow"/>
+  <line x1="410" y1="540" x2="430" y2="540" class="arrow"/>
+  
+  <line x1="550" y1="560" x2="620" y2="560" class="arrow"/>
+  <text x="585" y="555" class="text">No</text>
+  
+  <line x1="490" y1="580" x2="490" y2="590" class="arrow"/>
+  <line x1="430" y1="590" x2="290" y2="590" class="arrow"/>
+  <line x1="270" y1="610" x2="210" y2="610" class="arrow"/>
+  <text x="455" y="575" class="text">Sí</text>
+  
+  <line x1="550" y1="610" x2="570" y2="610" class="arrow"/>
+  <line x1="690" y1="610" x2="750" y2="610" class="arrow"/>
+  <line x1="750" y1="610" x2="750" y2="460" class="arrow"/>
+  <line x1="750" y1="460" x2="520" y2="460" class="arrow"/>
+  
+  <!-- Exit loop -->
+  <line x1="450" y1="490" x2="450" y2="650" class="arrow"/>
+  <text x="460" y="570" class="text">Sí</text>
+  
+  <!-- Factibility check -->
+  <line x1="300" y1="760" x2="300" y2="790" class="arrow"/>
+  <line x1="380" y1="730" x2="450" y2="730" class="arrow"/>
+  <text x="415" y="725" class="text">Sí</text>
+  
+  <line x1="220" y1="730" x2="180" y2="730" class="arrow"/>
+  <line x1="180" y1="730" x2="180" y2="850" class="arrow"/>
+  <line x1="180" y1="850" x2="210" y2="850" class="arrow"/>
+  <text x="200" y="725" class="text">No</text>
+  
+  <line x1="450" y1="890" x2="450" y2="905" class="arrow"/>
+</svg>

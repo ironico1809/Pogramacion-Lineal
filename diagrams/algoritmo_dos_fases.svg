@@ -1,0 +1,215 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="900" height="1600" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <style>
+      .box { fill: #f0f8ff; stroke: #2563eb; stroke-width: 2; }
+      .process { fill: #dbeafe; stroke: #1d4ed8; stroke-width: 2; }
+      .decision { fill: #fef3c7; stroke: #f59e0b; stroke-width: 2; }
+      .terminal { fill: #dcfce7; stroke: #16a34a; stroke-width: 2; }
+      .error { fill: #fee2e2; stroke: #dc2626; stroke-width: 2; }
+      .phase1 { fill: #fdf2f8; stroke: #ec4899; stroke-width: 3; stroke-dasharray: 5,5; }
+      .phase2 { fill: #f0f9ff; stroke: #0ea5e9; stroke-width: 3; stroke-dasharray: 5,5; }
+      .prep { fill: #f7fee7; stroke: #65a30d; stroke-width: 3; stroke-dasharray: 5,5; }      .text { font-family: Arial, sans-serif; font-size: 9px; text-anchor: middle; }
+      .small-text { font-family: Arial, sans-serif; font-size: 8px; text-anchor: middle; }
+      .title { font-family: Arial, sans-serif; font-size: 16px; font-weight: bold; text-anchor: middle; }
+      .phase-title { font-family: Arial, sans-serif; font-size: 12px; font-weight: bold; text-anchor: middle; }
+      .phase1-title { fill: #ec4899; }
+      .phase2-title { fill: #0ea5e9; }
+      .prep-title { fill: #65a30d; }
+      .arrow { stroke: #374151; stroke-width: 2; marker-end: url(#arrowhead); }
+    </style>
+    <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#374151" />
+    </marker>
+  </defs>
+  
+  <!-- Title -->
+  <text x="450" y="30" class="title">ALGORITMO MÉTODO DOS FASES</text>
+  
+  <!-- Inicio -->
+  <ellipse cx="450" cy="70" rx="60" ry="25" class="terminal"/>
+  <text x="450" y="75" class="text">INICIO</text>
+    <!-- Preparación -->
+  <rect x="50" y="110" width="800" height="100" class="prep"/>
+  <text x="450" y="130" class="phase-title prep-title">PREPARACIÓN INICIAL</text>
+  
+  <rect x="80" y="140" width="160" height="40" class="process"/>
+  <text x="160" y="155" class="text">Convertir a forma</text>
+  <text x="160" y="170" class="text">estándar</text>
+  
+  <rect x="260" y="140" width="160" height="40" class="process"/>
+  <text x="340" y="155" class="text">Identificar</text>
+  <text x="340" y="170" class="text">artificiales</text>
+  
+  <rect x="440" y="140" width="160" height="40" class="process"/>
+  <text x="520" y="155" class="text">Problema auxiliar</text>
+  <text x="520" y="170" class="text">Fase I</text>
+  
+  <rect x="620" y="140" width="160" height="40" class="process"/>
+  <text x="700" y="155" class="text">Preparar tabla</text>
+  <text x="700" y="170" class="text">inicial</text>
+  
+  <!-- FASE I -->
+  <rect x="50" y="230" width="800" height="400" class="phase1"/>
+  <text x="450" y="250" class="phase-title phase1-title">FASE I - BÚSQUEDA DE FACTIBILIDAD</text>
+    <rect x="350" y="270" width="200" height="40" class="process"/>
+  <text x="450" y="285" class="text">Construir tabla inicial</text>
+  <text x="450" y="300" class="text">w = Σ aᵢ (minimizar)</text>
+  
+  <rect x="350" y="330" width="200" height="40" class="process"/>
+  <text x="450" y="345" class="text">Base inicial con</text>
+  <text x="450" y="360" class="text">variables artificiales</text>
+  
+  <!-- Iterative loop for Phase I -->
+  <polygon points="450,390 520,420 450,450 380,420" class="decision"/>
+  <text x="450" y="415" class="text">¿Óptimo Fase I?</text>
+  <text x="450" y="430" class="small-text">(zⱼ - cⱼ ≥ 0)</text>
+    <rect x="150" y="480" width="130" height="40" class="process"/>
+  <text x="215" y="495" class="text">Simplex</text>
+  <text x="215" y="510" class="text">iteración</text>
+  
+  <rect x="300" y="480" width="130" height="40" class="process"/>
+  <text x="365" y="495" class="text">Actualizar</text>
+  <text x="365" y="510" class="text">tabla</text>
+  
+  <rect x="450" y="480" width="130" height="40" class="process"/>
+  <text x="515" y="495" class="text">Registrar</text>
+  <text x="515" y="510" class="text">iteración Fase I</text>
+  
+  <!-- Phase I evaluation -->
+  <polygon points="450,560 530,590 450,620 370,590" class="decision"/>
+  <text x="450" y="580" class="text">w* > 0?</text>
+  <text x="450" y="595" class="small-text">(¿Infactible?)</text>
+  
+  <rect x="620" y="565" width="140" height="50" class="error"/>
+  <text x="690" y="580" class="text">PROBLEMA</text>
+  <text x="690" y="595" class="text">INFACTIBLE</text>
+  <text x="690" y="610" class="text">TERMINAR</text>
+  
+  <!-- FASE II -->
+  <rect x="50" y="650" width="800" height="450" class="phase2"/>
+  <text x="450" y="670" class="phase-title phase2-title">FASE II - OPTIMIZACIÓN</text>
+  
+  <rect x="120" y="690" width="140" height="40" class="process"/>
+  <text x="190" y="705" class="text">Eliminar variables</text>
+  <text x="190" y="720" class="text">artificiales</text>
+  
+  <rect x="280" y="690" width="140" height="40" class="process"/>
+  <text x="350" y="705" class="text">Restaurar función</text>
+  <text x="350" y="720" class="text">objetivo original</text>
+  
+  <rect x="440" y="690" width="140" height="40" class="process"/>
+  <text x="510" y="705" class="text">Recalcular</text>
+  <text x="510" y="720" class="text">fila Z</text>
+  
+  <rect x="600" y="690" width="140" height="40" class="process"/>
+  <text x="670" y="705" class="text">Mantener base</text>
+  <text x="670" y="720" class="text">factible</text>
+  
+  <!-- Phase II iterations -->
+  <polygon points="450,760 520,790 450,820 380,790" class="decision"/>
+  <text x="450" y="785" class="text">¿Óptimo Fase II?</text>
+  <text x="450" y="800" class="small-text">(función original)</text>
+  
+  <rect x="180" y="850" width="120" height="40" class="process"/>
+  <text x="240" y="865" class="text">Simplex</text>
+  <text x="240" y="880" class="text">iteración</text>
+  
+  <rect x="320" y="850" width="120" height="40" class="process"/>
+  <text x="380" y="865" class="text">Actualizar</text>
+  <text x="380" y="880" class="text">tabla</text>
+  
+  <rect x="460" y="850" width="120" height="40" class="process"/>
+  <text x="520" y="865" class="text">Registrar</text>
+  <text x="520" y="880" class="text">iteración Fase II</text>
+  
+  <!-- Final result construction -->
+  <rect x="120" y="940" width="140" height="40" class="process"/>
+  <text x="190" y="955" class="text">Combinar</text>
+  <text x="190" y="970" class="text">iteraciones</text>
+  
+  <rect x="280" y="940" width="140" height="40" class="process"/>
+  <text x="350" y="955" class="text">Extraer solución</text>
+  <text x="350" y="970" class="text">óptima final</text>
+  
+  <rect x="440" y="940" width="140" height="40" class="process"/>
+  <text x="510" y="955" class="text">Calcular valor</text>
+  <text x="510" y="970" class="text">función objetivo</text>
+  
+  <rect x="600" y="940" width="140" height="40" class="process"/>
+  <text x="670" y="955" class="text">Generar respuesta</text>
+  <text x="670" y="970" class="text">completa</text>
+  
+  <!-- Casos especiales -->
+  <rect x="50" y="1120" width="800" height="120" class="prep"/>
+  <text x="450" y="1140" class="phase-title prep-title">MANEJO DE CASOS ESPECIALES</text>
+  
+  <rect x="120" y="1150" width="180" height="40" class="process"/>
+  <text x="210" y="1165" class="text">Variables artificiales</text>
+  <text x="210" y="1180" class="text">degeneradas en base</text>
+  
+  <rect x="320" y="1150" width="180" height="40" class="process"/>
+  <text x="410" y="1165" class="text">Múltiples soluciones</text>
+  <text x="410" y="1180" class="text">óptimas</text>
+  
+  <rect x="520" y="1150" width="180" height="40" class="process"/>
+  <text x="610" y="1165" class="text">Problemas</text>
+  <text x="610" y="1180" class="text">no acotados</text>
+  
+  <!-- Fin -->
+  <ellipse cx="450" cy="1300" rx="60" ry="25" class="terminal"/>
+  <text x="450" y="1305" class="text">FIN</text>
+  
+  <!-- Arrows -->
+  <line x1="450" y1="95" x2="450" y2="110" class="arrow"/>
+  <line x1="450" y1="210" x2="450" y2="230" class="arrow"/>
+  <line x1="450" y1="310" x2="450" y2="330" class="arrow"/>
+  <line x1="450" y1="370" x2="450" y2="390" class="arrow"/>
+  
+  <!-- Phase I loop -->
+  <line x1="380" y1="420" x2="320" y2="420" class="arrow"/>
+  <line x1="320" y1="420" x2="320" y2="480" class="arrow"/>
+  <line x1="320" y1="480" x2="240" y2="480" class="arrow"/>
+  <text x="350" y="415" class="text">No</text>
+  
+  <line x1="300" y1="500" x2="320" y2="500" class="arrow"/>
+  <line x1="440" y1="500" x2="460" y2="500" class="arrow"/>
+  <line x1="580" y1="500" x2="600" y2="500" class="arrow"/>
+  <line x1="600" y1="500" x2="600" y2="420" class="arrow"/>
+  <line x1="600" y1="420" x2="520" y2="420" class="arrow"/>
+  
+  <!-- Phase I to evaluation -->
+  <line x1="450" y1="450" x2="450" y2="560" class="arrow"/>
+  <text x="460" y="505" class="text">Sí</text>
+  
+  <!-- Infeasible branch -->
+  <line x1="530" y1="590" x2="620" y2="590" class="arrow"/>
+  <text x="575" y="585" class="text">Sí</text>
+  
+  <!-- Phase I to Phase II -->
+  <line x1="450" y1="620" x2="450" y2="650" class="arrow"/>
+  <text x="460" y="635" class="text">No (w*=0)</text>
+  
+  <!-- Phase II setup -->
+  <line x1="450" y1="730" x2="450" y2="760" class="arrow"/>
+  
+  <!-- Phase II loop -->
+  <line x1="380" y1="790" x2="320" y2="790" class="arrow"/>
+  <line x1="320" y1="790" x2="320" y2="850" class="arrow"/>
+  <line x1="320" y1="850" x2="240" y2="850" class="arrow"/>
+  <text x="350" y="785" class="text">No</text>
+  
+  <line x1="300" y1="870" x2="320" y2="870" class="arrow"/>
+  <line x1="440" y1="870" x2="460" y2="870" class="arrow"/>
+  <line x1="580" y1="870" x2="750" y2="870" class="arrow"/>
+  <line x1="750" y1="870" x2="750" y2="790" class="arrow"/>
+  <line x1="750" y1="790" x2="520" y2="790" class="arrow"/>
+  
+  <!-- Phase II to final -->
+  <line x1="450" y1="820" x2="450" y2="940" class="arrow"/>
+  <text x="460" y="880" class="text">Sí</text>
+  
+  <!-- Final construction -->
+  <line x1="450" y1="980" x2="450" y2="1120" class="arrow"/>
+  <line x1="450" y1="1240" x2="450" y2="1275" class="arrow"/>
+</svg>

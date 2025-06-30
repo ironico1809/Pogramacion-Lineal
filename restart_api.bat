@@ -1,0 +1,3 @@
+@echo off
+echo Reiniciando servidor API...
+python api_final.py
