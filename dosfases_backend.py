@@ -367,4 +367,4 @@ async def solve_problem(data: SolverRequest):
         return {"error": str(e)}
 
 if __name__ == "__main__":
-    uvicorn.run("dosfases_backend:app", host="0.0.0.0", port=8004, reload=False)
+    uvicorn.run("dosfases_backend:app", host="0.0.0.0", port=8003, reload=False)

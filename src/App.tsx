@@ -438,13 +438,16 @@ interface BackendTable {
   headers: string[];
   rows: { base: string; values: (string | number)[] }[];
 }
+// Corregido: Iteracion ahora incluye headers y rows
 interface Iteracion {
-  paso: number;
-  tabla: BackendTable;
-  base: string[];
+  paso?: number;
+  tabla?: BackendTable;
+  base?: string[];
   optima?: boolean;
   ilimitado?: boolean;
   pivote_invalido?: boolean;
+  headers?: string[];
+  rows?: any[]; // <-- para compatibilidad con backend actual
 }
 interface BackendResponse {
   // Campos para Gran M
@@ -524,8 +527,8 @@ const SolutionReal: React.FC<{ data: BackendResponse; problem: Problem }> = ({ d
                   <div key={idx} style={{marginBottom: 24}}>
                     <div className="iteration-header">Iteración {idx + 1} - Fase I</div>
                     <SimplexTableBackend table={{
-                      headers: it.headers,
-                      rows: it.rows.map(rowArr => ({
+                      headers: it.headers ?? [],
+                      rows: (it.rows ?? []).map((rowArr: any) => ({
                         base: rowArr[0],
                         values: rowArr.slice(1)
                       }))
@@ -553,17 +556,26 @@ const SolutionReal: React.FC<{ data: BackendResponse; problem: Problem }> = ({ d
                   <div key={idx} style={{marginBottom: 24}}>
                     <div className="iteration-header">Iteración {idx + 1} - Fase II</div>
                     <SimplexTableBackend table={{
-                      headers: it.headers,
-                      rows: it.rows.map(rowArr => ({
+                      headers: it.headers ?? [],
+                      rows: (it.rows ?? []).map((rowArr: any) => ({
                         base: rowArr[0],
                         values: rowArr.slice(1)
                       }))
                     }} />
-                  </div>
+                  </div>  
                 ))}
-                {data.fase2.solucion && (
-                  <div className="iteration-header" style={{background: '#27ae60'}}>✅ Solución Óptima Encontrada</div>
-                )}
+              </>
+            )}
+            
+            {/* NUEVO: Mostrar solución final para Dos Fases */}
+            {data.fase2.solucion && data.fase2.optimo && (
+              <>
+                <div className="iteration-header" style={{background: '#27ae60'}}>✅ Solución Óptima Encontrada</div>
+                <SolucionFinalDosFases 
+                  solucion={data.fase2.solucion}
+                  valorObjetivo={data.fase2.valor_objetivo}
+                  objType={problem.objType}
+                />
               </>
             )}
           </>
@@ -623,7 +635,7 @@ const SolutionReal: React.FC<{ data: BackendResponse; problem: Problem }> = ({ d
           {data.iteraciones.map((it, idx) => (
             <div key={idx}>
               <div className="iteration-header">Iteración {it.paso}</div>
-              <SimplexTableBackend table={it.tabla} />
+              <SimplexTableBackend table={it.tabla ?? { headers: [], rows: [] }} />
               {it.optima && <div className="example-box" style={{background:'#e8f5e8'}}><strong>✅ Solución óptima encontrada</strong></div>}
               {it.ilimitado && <div className="example-box" style={{background:'#ffeaea'}}><strong>⚠️ Problema ilimitado</strong></div>}
               {it.pivote_invalido && <div className="example-box" style={{background:'#ffeaea'}}><strong>⚠️ Pivote inválido</strong></div>}
@@ -809,7 +821,6 @@ const SolucionFinalGranM: React.FC<{ iteraciones: Iteracion[]; problem: Problem 
 const SolucionFinalDosFases: React.FC<{ 
   solucion: Record<string, any>; 
   valorObjetivo: any;
-  iteraciones?: Iteracion[];
   objType?: string;
 }> = ({ solucion, valorObjetivo, objType = 'min' }) => {
   
