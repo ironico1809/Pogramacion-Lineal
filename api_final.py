@@ -28,7 +28,7 @@ except ImportError as e:
 
 # Import del método Dos Fases COMPLETO
 try:
-    from simplex_complete import SimplexDosFasesTablaCompleta
+    from src.components.Metodo2F_NEW import SimplexDosFasesTablaCompleta
     DOSFASES_AVAILABLE = True
     print("✅ Método Dos Fases COMPLETO importado exitosamente")
 except ImportError as e:
